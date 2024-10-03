@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Miracle Power Up Oil</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap");
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url("images.jpg");
+        background-repeat: no-repeat;
+        background-size: 50vw 100vh;
+        background-position: 10vw 50vh;
+        backdrop-filter: blur(100px);
+        font-family: "Roboto Slab", serif;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .wrapper {
+        position: relative;
+        z-index: 2;
+        max-width: 350px;
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 1.25rem;
+        color: rgb(255, 150, 0);
+        text-transform: uppercase;
+      }
+
+      p {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .p-wrapper {
+        display: flex;
+
+        & .p-inner-wrapper {
+          margin-top: 50px;
+          margin-left: 50px;
+        }
+
+        & p {
+          font-size: 1.2rem;
+          color: rgb(3, 3, 3);
+          margin-left: 20px;
+          background-color: rgb(255, 204, 0);
+          height: fit-content;
+          width: fit-content;
+          margin: 0;
+          padding: 10px;
+
+          & span {
+            color: rgb(156, 26, 26);
+          }
+        }
+      }
+
+      .explicit-image {
+        position: absolute;
+        right: 0;
+        top: 10px;
+        z-index: -1;
+        height: 200px;
+        width: 200px;
+        mix-blend-mode: color;
+        border-radius: 50%;
+      }
+
+      .price-wrapper {
+        margin-top: 10px;
+        & p {
+          background-color: transparent;
+        }
+      }
+
+      .price-wrapper .discount {
+        color: white;
+        font-size: 1.75rem;
+        color: rgb(255, 150, 0);
+
+        & span {
+          font-size: 1.25rem;
+          color: white;
+          font-weight: 300;
+          text-decoration: line-through;
+        }
+      }
+
+      .price-wrapper .discount-text {
+        color: white;
+        font-weight: 300;
+        margin-left: 20px;
+      }
+
+      img {
+        width: 120px;
+        height: 300px;
+        object-fit: cover;
+      }
+      .img_bottom{
+        width: 180px;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      form {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 30px;
+        background-color: rgb(29, 23, 35);
+        margin-block: 50px;
+        border: 2px solid rgb(255, 150, 0);
+        z-index: 100;
+
+        & p {
+          margin-top: 50px;
+          font-size: 1.2rem;
+          font-weight: 200;
+        }
+
+        & h2 {
+          text-align: center;
+          color: rgb(255, 150, 0);
+        }
+
+        & input {
+          margin-bottom: 20px;
+          padding: 10px;
+          width: 100%;
+          box-sizing: border-box;
+          border: 1px solid rgb(255, 150, 0);
+        }
+      }
+
+      .s_button {
+        border: none;
+        color: rgb(27, 27, 27);
+        font-weight: bold;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.25rem;
+        margin: 4px 2px;
+        cursor: pointer;
+        background-color: rgb(255, 150, 0);
+        box-shadow: 0px 10px 0 0 rgb(156, 26, 26);
+      }
+
+      .phone {
+        align-self: center;
+        font-size: 2rem;
+        background-color: rgb(76, 175, 80);
+        width: fit-content;
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .info-section {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        background-color: rgb(81, 8, 15);
+        width: 100%;
+        margin-top: -150px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .info-section-wrapper {
+        max-width: 350px;
+      }
+
+      .info-section-title {
+        margin-top: 150px;
+        font-weight: 400;
+        font-size: 2rem;
+        color: rgb(255, 150, 0);
+      }
+
+      .info-section-subtitle {
+        font-weight: 300;
+        font-size: 1.5rem;
+        color: rgb(255, 255, 255);
+      }
+
+      footer p {
+        font-size: 1rem;
+        font-weight: 200;
+      }
+
+      table {
+        width: 100%;
+        margin-block: 50px;
+      }
+
+      table td {
+        min-width: 100px;
+        border-bottom: 1px solid rgb(255, 150, 0);
+      }
+
+      table td p {
+        font-weight: 300;
+        text-align: left;
+        font-size: 0.75rem;
+      }
+
+      table td i {
+        font-size: 2rem;
+      }
+
+      table td p span {
+        color: rgb(255, 150, 0);
+        text-align: left;
+        font-size: 1rem;
+        text-decoration: underline;
+      }
+
+      .info-section-bottom {
+        position: relative;
+        background-color: rgb(9, 6, 21);
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 20px;
+      }
+
+      .info-section-bottom .p-wrapper {
+        flex-direction: row-reverse;
+      }
+
+      .info-section-bottom .p-inner-wrapper {
+        flex-direction: row-reverse;
+        margin-left: 0;
+        margin-right: 20px;
+      }
+
+      .alert {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 50px;
+      }
+
+      #loader {
+        border: 6px solid #f3f3f3;
+        border-top: 6px solid #3498db;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 2s linear infinite;
+        margin-bottom: 30px;
+        display: none;
+      }
+
+      #message {
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Miracle Power Up Oil</h1>
+      <p>කාලය, දිග සහ මහත වර්ධනයට එකම විසදුම  </p>
+      <div class="p-wrapper">
+        <img src="product2.png" alt="" />
+
+        <img class="explicit-image" src="main.gif" alt="" />
+        <div class="p-inner-wrapper">
+          <p>ප්‍රමාණය වැඩිවීම  <span> 2 Inch </span></p>
+          <p>දින <span>10 කින්</span></p>
+          <div class="price-wrapper">
+            <p class="discount"><span> 3,200 LKR</span> <br />1,990 LKR</p>
+            <p class="discount-text">
+              මෙම විශේෂ මිල අඩු කිරීම (31 .07 .2024) දිනට පෙර ලබා දෙන ඇණවුම් සදහා පමණි 
+            </p>
+          </div>
+        </div>
+      </div>
+      <form name="submit-to-google-sheet">
+        <h2>
+          පහතින් ඇණවුම් කරන්න. <br> භාණ්ඩය ලැබුණ පසු මුදල් ගෙවන්න. <br> <br>
+ඩිලිවරි ගාස්තු නොමිලේ 
+        </h2>
+
+        <div class="details">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            required
+          />
+
+          <input
+            type="text"
+            id="address"
+            name="address"
+            placeholder="Address"
+            required
+          />
+
+          <input
+            type="text"
+            id="tel"
+            name="tel"
+            placeholder="Mobile No."
+            required
+          />
+        </div>
+        <button id="submit-btn" class="s_button">ඇණවුම් කරන්න</button>
+        <div class="alert">
+          <div id="loader"></div>
+          <div id="message"></div>
+        </div>
+        <p>
+          අප ව්‍යාජ නිෂ්පාදන අලෙවි නොකරන්නෙමු ! <br> <br>
+          ඔබ ඇණවුම් කිරීමෙන් පසු අපගේ අලවි නියෝජිතයෙකු ඔබව  අමතනු ඇත. <br> <br>
+          මෙය පුරාණ දේශීය ආයුරුවේද වට්ටෝරුවකට අනුව සකසා ඇත. <br> <br>
+          මෙය දින 2 ක් තුල ඔබේ නිවසටම ගෙන්වා ගත හැක.  
+        </p>
+
+        <div class="phone">074 143 3235</div>
+      </form>
+    </div>
+
+    <section class="info-section">
+      <div class="info-section-wrapper">
+        <h1 class="info-section-title">
+          අදම ඔරිජිනල් නිෂ්පාදනයේ විශ්මිත ප්‍රතිඵල අත් විදින්න.
+        </h1>
+        <h1 class="info-section-subtitle">
+          " සියළුම ලිoගික ගැටළු සදහා විශිෂ්ට නිශ්පාදනයකි "
+        </h1>
+        <table>
+          <tr>
+            <td>
+              <i class="fas fa-calendar-week"></i>
+            </td>
+            <td>
+              <p>
+                <span>සති 2ක් ඇතුළත </span><br />
+                රුධිර වාහිනී ප්‍රසාරණය කිරීම මගින් දිග සහ මහත වැඩි කරයි 
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fas fa-leaf"></i>
+            </td>
+            <td>
+              <p>
+                <span>ස්වාභාවික සoයෝග මගින් 
+                 </span><br />
+                 ශුක්‍රානු වල ගුණාත්මක භාවය හා නිපදවන ප්‍රමාණය වැඩි කෙරේ.
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fas fa-flask"></i>
+            </td>
+            <td>
+              <p>
+                <span>මෙහි අඩoගු වැඩි දියුණු  කළ සoයෝග මගින් </span><br />
+                සoසර්ගයේ උපරිම ආශ්වාදය ලැබා දේ 
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fas fa-arrow-up"></i>
+            </td>
+            <td>
+              <p>
+                <span>සෘජු හා දැඩි බව සමග </span><br />
+                ස්ථිර හා වැඩි කාලයක් ප්‍රාණවත් බව තබාගන්න 
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i class="fas fa-recycle"></i>
+            </td>
+            <td>
+              <p>
+                <span>නිතිපතා භාවිතයෙන්</span><br />
+                ඉක්මනින් ධාතු පිටවීමේ ගැටළුව විසදාගන්න 
+              </p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="info-section-bottom">
+      <div class="info-section-wrapper">
+        <h1>Miracle Power Up Oil</h1>
+        <p> අදම ඔරිජිනල් නිෂ්පාදනයේ විශ්මිත ප්‍රතිඵල අත් විදින්න.</p>
+        <div class="p-wrapper">
+          
+          <img class="img_bottom" src="product.png" alt="" />
+          <div class="p-inner-wrapper">
+            <p>Miracle <span>Power Up Oil</span></p>
+            
+            <div class="price-wrapper">
+              <p class="discount"><span> 3,200 LKR</span> <br />1,990 LKR</p>
+              <p class="discount-text">
+                අදම ඔරිජිනල් නිෂ්පාදනයේ විශ්මිත ප්‍රතිඵල අත් විදින්න.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Cooyright 2023 @Miracle Lanka PVT.Ltd</p>
+    </footer>
+
+    <script>
+      const scriptURL = "https://script.google.com/macros/s/AKfycbz_oSXsS8pxqn5bg0QsSJk9s085No9Uj5bbRDVYR2pv61zxkxYjqWV-1C7sgbTE7AsA4Q/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      const btn = document.getElementById("submit-btn");
+      const message = document.getElementById("message");
+      const loader = document.getElementById("loader");
+
+      btn.addEventListener("click", () => {
+        console.log("clicked");
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        loader.style.display = "block";
+        btn.disabled = true;
+
+        try {
+          const response = await fetch(scriptURL, {
+            method: "POST",
+            body: new FormData(form),
+          });
+
+          if (response.ok) {
+            message.innerText = "සාර්ථකයි!,\n අපගේ අලවි නියෝජිත මහතෙකු හැකි ඉක්මනින් ඔබව සම්බන්ද කරගනු ඇත.";
+          } else {
+            message.innerText = "අසාර්ථකයි!,\n නැවත උත්සාහ කරන්න.";
+          }
+        } catch (error) {
+          message.innerText = "අසාර්ථකයි!,\n නැවත උත්සාහ කරන්න.";
+        } finally {
+          loader.style.display = "none";
+          btn.disabled = false;
+          form.reset();
+        }
+      });
+    </script>
+  </body>
+</html>
